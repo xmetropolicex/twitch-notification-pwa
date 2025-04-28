@@ -1,0 +1,1 @@
+Bu klasöre ikon dosyaları eklenecek: icon-192x192.png ve icon-512x512.png

@@ -1,0 +1,25 @@
+{
+  "name": "twitch-notification-pwa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.3.1",
+    "next-pwa": "^5.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^15.3.1",
+    "typescript": "^5.4.5"
+  }
+}

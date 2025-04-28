@@ -5,9 +5,9 @@ const ASSETS_TO_CACHE = [
   '/css/tailwind.min.css',
   '/js/app.js',
   '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
-  '/img/twitch-logo.png'
+  '/icons/icon-192x192.svg',
+  '/icons/icon-512x512.svg',
+  '/img/default-icon.svg'
 ];
 
 // Service Worker Kurulumu
@@ -84,8 +84,8 @@ self.addEventListener('push', (event) => {
     
     const options = {
       body: notification.body,
-      icon: '/icons/icon-192x192.png',
-      badge: '/icons/icon-192x192.png',
+      icon: '/icons/icon-192x192.svg',
+      badge: '/icons/icon-192x192.svg',
       data: {
         url: notification.url
       }

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#9146FF">
+  <title>Twitch Bildirim</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/tailwind.min.css">
+  <link rel="icon" href="/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen">
+  <div id="app" class="max-w-lg mx-auto px-4 py-6">
+    <!-- Giriş Ekranı -->
+    <div id="login-screen" class="text-center py-10">
+      <img src="/img/twitch-logo.png" alt="Twitch Logo" class="w-32 mx-auto mb-6">
+      <h1 class="text-2xl font-bold text-purple-600 mb-6">Twitch Bildirim</h1>
+      <p class="text-gray-600 dark:text-gray-300 mb-8">Twitch yayıncılarının canlı yayına başladığında bildirim alın</p>
+      <button id="login-button" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transition">
+        Twitch ile Giriş Yap
+      </button>
+    </div>
+
+    <!-- Ana Uygulama -->
+    <div id="app-content" class="hidden">
+      <!-- Üst Başlık -->
+      <header class="flex items-center justify-between mb-6">
+        <h1 class="text-xl font-bold text-purple-600">Twitch Bildirim</h1>
+        <button id="logout-button" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+          Çıkış Yap
+        </button>
+      </header>
+
+      <!-- Takip Edilen Yayıncılar -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6">
+        <h2 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Takip Edilen Yayıncılar</h2>
+        <div id="streamers-list" class="space-y-3">
+          <!-- Yayıncı listesi buraya gelecek -->
+          <div class="animate-pulse flex space-x-4">
+            <div class="rounded-full bg-gray-200 dark:bg-gray-700 h-10 w-10"></div>
+            <div class="flex-1 space-y-2 py-1">
+              <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+              <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bildirimler -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Bildirimler</h2>
+          <button id="clear-notifications" class="text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+            Temizle
+          </button>
+        </div>
+        <div id="notifications-list" class="space-y-3">
+          <!-- Bildirimler buraya gelecek -->
+          <p id="no-notifications" class="text-gray-500 dark:text-gray-400 text-center py-2">Henüz bildirim yok</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PWA Kurulum Bildirimi -->
+  <div id="pwa-install-prompt" class="hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 p-4 shadow-lg border-t border-gray-200 dark:border-gray-700">
+    <div class="max-w-lg mx-auto flex justify-between items-center">
+      <div>
+        <h3 class="font-semibold text-gray-800 dark:text-white">Ana Ekrana Ekle</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Daha iyi bir deneyim için uygulamayı ana ekranınıza ekleyin</p>
+      </div>
+      <div class="flex space-x-2">
+        <button id="pwa-cancel" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 px-3 py-1">
+          Kapat
+        </button>
+        <button id="pwa-install" class="text-sm bg-purple-600 hover:bg-purple-700 text-white font-semibold px-3 py-1 rounded shadow-sm transition">
+          Yükle
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script>
+    // Service Worker Kaydı
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+          console.log('ServiceWorker kaydı başarılı:', registration.scope);
+        }).catch(error => {
+          console.log('ServiceWorker kaydı başarısız:', error);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

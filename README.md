@@ -1,43 +1,46 @@
-# Twitch Bildirim Görüntüleyici (PWA)
+# Twitch Bildirim PWA
 
-Bu proje, kullanıcıların Twitch hesaplarıyla giriş yapıp bildirimlerini görüntüleyebilecekleri bir PWA (Progressive Web App) uygulamasıdır.
+Bu proje, takip ettiğiniz Twitch yayıncıları canlı yayına başladığında bildirim almanızı sağlayan bir Progressive Web App'tir.
 
 ## Özellikler
 
-- Twitch OAuth ile güvenli giriş
-- Bildirimleri görüntüleme ve yönetme
-- PWA desteği (Ana ekrana eklenebilir)
-- Tamamen client-side (sunucu gerekmez)
-- Responsive tasarım
-- Tüm veri localStorage'da saklanır
+- Progressive Web App (PWA) özelliği - Ana ekrana eklenebilir
+- Responsive ve iOS tarzı tasarım (TailwindCSS ile)
+- Twitch ile giriş yaparak takip ettiğiniz yayıncıları görüntüleme
+- Yayıncılar canlı yayına başladığında bildirim alma
+- Bildirimleri saklama ve görüntüleme
+- Web Push bildirimleri desteği
+- Karanlık/Aydınlık tema desteği
+- Offline çalışabilme
 
 ## Kurulum
 
-1. Repoyu klonlayın
-   ```
-   git clone https://github.com/xmetropolicex/twitch-notification-pwa.git
-   cd twitch-notification-pwa
-   ```
+Projeyi kullanmak için aşağıdaki adımları izleyin:
 
-2. Bağımlılıkları yükleyin
+1. Projeyi bir web sunucusuna yükleyin
+2. `public/js/app.js` dosyasında Twitch Client ID'nizi ayarlayın:
+   ```javascript
+   const TWITCH_CLIENT_ID = 'YOUR_CLIENT_ID'; // Buraya kendi Client ID'nizi girin
    ```
-   npm install
-   ```
+3. Twitch Developer portalından bir uygulama oluşturun ve OAuth yönlendirme URL'ini projenizin URL'i olarak ayarlayın
 
-3. Twitch API bilgilerinizi ekleyin
-   - `.env.example` dosyasını `.env.local` olarak kopyalayın
-   - `NEXT_PUBLIC_TWITCH_CLIENT_ID` değerini Twitch Developer Dashboard'dan alacağınız Client ID ile güncelleyin
-   - `NEXT_PUBLIC_REDIRECT_URI` değerini uygulamanızın callback URL'i ile güncelleyin
+## Icon Ekleme
 
-4. Uygulamayı başlatın
-   ```
-   npm run dev
-   ```
+Projenin tam olarak çalışması için aşağıdaki dosyaları eklemeniz gerekiyor:
 
-## Teknolojiler
+1. `public/icons/icon-192x192.png` - 192x192 boyutunda uygulama ikonu
+2. `public/icons/icon-512x512.png` - 512x512 boyutunda uygulama ikonu
+3. `public/img/twitch-logo.png` - Giriş ekranında gösterilecek Twitch logosu
 
-- Next.js
-- React
-- TailwindCSS
-- Next-PWA
+## Geliştirme
+
+Bu proje aşağıdaki teknolojileri kullanmaktadır:
+
+- HTML5 ve TailwindCSS
+- JavaScript (Vanilla)
+- PWA (Progressive Web App) özellikleri
 - Twitch API
+
+## Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakınız.

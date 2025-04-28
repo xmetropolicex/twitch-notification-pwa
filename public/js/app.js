@@ -1,5 +1,5 @@
 // Twitch API Ayarları
-const TWITCH_CLIENT_ID = 'YOUR_CLIENT_ID'; // Twitch Developer Console'dan alınacak
+const TWITCH_CLIENT_ID = 'bug9ai3bewa020mhkyuojd0flr4hvp'; // Twitch Developer Console'dan alınacak
 const TWITCH_REDIRECT_URI = window.location.origin; // Uygulama URL'i
 const TWITCH_SCOPE = 'user:read:follows';
 
